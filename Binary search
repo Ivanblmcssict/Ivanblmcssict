@@ -1,0 +1,52 @@
+count = 0
+2	
+3	def binarySearch(arr, left, right, val):
+4	 
+5	    while left <= right:
+6	 
+7	        mid = (left+right) // 2       # // means floor division
+8	        
+9	        # alternate way to avoid overflow in some languages
+10	        # mid = left + (right - left) // 2          
+11	 
+12	        #counting how many comparisons have been made
+13	        global count
+14	        count += 1
+15	        
+16	        # Check if val is the middle one
+17	        if arr[mid] == val:
+18	            return mid
+19	 
+20	        # If val is greater, consider only the upper half
+21	        elif arr[mid] < val:
+22	            left = mid+1
+23	 
+24	        # If val is smaller, ignore only the lower half
+25	        else:
+26	            right = mid-1
+27	  
+28	    #reaching here means value not found, return -1 to indicate not found
+29	    return -1
+30	 
+31	 
+32	# Main program
+33	#arr =  [1,10,35,62,70,81,90,93,95,100]
+34	arr = [1, 2, 3, 4, 10, 20, 25, 30, 40, 45, 55, 60, 75, 80, 99, 100]
+35	#arr = [1, 2, 3, 4, 10, 20, 25, 30, 40, 45, 55, 60, 75, 80, 99, 100, 101, 102, 105, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230]
+36	
+37	print(arr)
+38	
+39	to_find = int(input('Input a number to search for: '))
+40	
+41	result = binarySearch(arr, 0, len(arr)-1, to_find)
+42	 
+43	if result != -1:
+44	    print(f'Value {to_find} found at index {result}')
+45	else:
+46	    print('Value not found')
+47	
+48	print(f'Comparision count: {count}')
+Edit this code
+ line that just executed
+ next line to execute
+
